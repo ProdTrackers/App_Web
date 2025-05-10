@@ -1,29 +1,73 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "email": "juan.perez@example.com",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "firstName": "María",
+      "lastName": "López",
+      "email": "maria.lopez@example.com",
+      "password": "qwerty"
+    },
+    {
+      "id": "3",
+      "firstName": "Carlos",
+      "lastName": "Ramírez",
+      "email": "carlos.ramirez@example.com",
+      "password": "abc123"
+    },
+    {
+      "id": "4",
+      "firstName": "Lucía",
+      "lastName": "Fernández",
+      "email": "lucia.fernandez@example.com",
+      "password": "pass1234"
+    },
+    {
+      "id": "5",
+      "firstName": "Andrés",
+      "lastName": "Gómez",
+      "email": "andres.gomez@example.com",
+      "password": "mypassword"
+    },
+    {
+      "id": 0,
+      "firstName": "Eduardo",
+      "lastName": "Chero",
+      "email": "eduardochero08@gmail.com",
+      "password": "olakasexd"
+    }
+  ],
   "stores": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Falabella"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Ripley"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Oeschle"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "TopiTop"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "H&M"
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "storeId": 1,
       "name": "Product 1",
       "price": 1000,
@@ -39,7 +83,7 @@
       "discount": 10
     },
     {
-      "id": 2,
+      "id": "2",
       "storeId": 1,
       "name": "Product 2",
       "price": 1050,
@@ -54,7 +98,7 @@
       "reviews": 13
     },
     {
-      "id": 3,
+      "id": "3",
       "storeId": 1,
       "name": "Product 3",
       "price": 1100,
@@ -65,11 +109,11 @@
         "L"
       ],
       "stock": 7,
-      "rating": 4.0,
+      "rating": 4,
       "reviews": 16
     },
     {
-      "id": 4,
+      "id": "4",
       "storeId": 1,
       "name": "Product 4",
       "price": 1150,
@@ -84,7 +128,7 @@
       "reviews": 19
     },
     {
-      "id": 5,
+      "id": "5",
       "storeId": 1,
       "name": "Product 5",
       "price": 1200,
@@ -100,7 +144,7 @@
       "discount": 18
     },
     {
-      "id": 6,
+      "id": "6",
       "storeId": 1,
       "name": "Product 6",
       "price": 1250,
@@ -115,7 +159,7 @@
       "reviews": 25
     },
     {
-      "id": 7,
+      "id": "7",
       "storeId": 1,
       "name": "Product 7",
       "price": 1300,
@@ -130,7 +174,7 @@
       "reviews": 28
     },
     {
-      "id": 8,
+      "id": "8",
       "storeId": 1,
       "name": "Product 8",
       "price": 1350,
@@ -141,11 +185,11 @@
         "L"
       ],
       "stock": 6,
-      "rating": 4.0,
+      "rating": 4,
       "reviews": 31
     },
     {
-      "id": 9,
+      "id": "9",
       "storeId": 2,
       "name": "Product 9",
       "price": 1000,
@@ -161,7 +205,7 @@
       "discount": 10
     },
     {
-      "id": 10,
+      "id": "10",
       "storeId": 2,
       "name": "Product 10",
       "price": 1050,
@@ -176,7 +220,7 @@
       "reviews": 13
     },
     {
-      "id": 11,
+      "id": "11",
       "storeId": 2,
       "name": "Product 11",
       "price": 1100,
@@ -187,11 +231,11 @@
         "L"
       ],
       "stock": 7,
-      "rating": 4.0,
+      "rating": 4,
       "reviews": 16
     },
     {
-      "id": 12,
+      "id": "12",
       "storeId": 2,
       "name": "Product 12",
       "price": 1150,
@@ -206,7 +250,7 @@
       "reviews": 19
     },
     {
-      "id": 13,
+      "id": "13",
       "storeId": 2,
       "name": "Product 13",
       "price": 1200,
@@ -222,7 +266,7 @@
       "discount": 18
     },
     {
-      "id": 14,
+      "id": "14",
       "storeId": 2,
       "name": "Product 14",
       "price": 1250,
@@ -237,7 +281,7 @@
       "reviews": 25
     },
     {
-      "id": 15,
+      "id": "15",
       "storeId": 2,
       "name": "Product 15",
       "price": 1300,
@@ -252,7 +296,7 @@
       "reviews": 28
     },
     {
-      "id": 16,
+      "id": "16",
       "storeId": 2,
       "name": "Product 16",
       "price": 1350,
@@ -263,11 +307,11 @@
         "L"
       ],
       "stock": 6,
-      "rating": 4.0,
+      "rating": 4,
       "reviews": 31
     },
     {
-      "id": 17,
+      "id": "17",
       "storeId": 3,
       "name": "Product 17",
       "price": 1000,
@@ -283,7 +327,7 @@
       "discount": 10
     },
     {
-      "id": 18,
+      "id": "18",
       "storeId": 3,
       "name": "Product 18",
       "price": 1050,
@@ -298,7 +342,7 @@
       "reviews": 13
     },
     {
-      "id": 19,
+      "id": "19",
       "storeId": 3,
       "name": "Product 19",
       "price": 1100,
@@ -309,11 +353,11 @@
         "L"
       ],
       "stock": 7,
-      "rating": 4.0,
+      "rating": 4,
       "reviews": 16
     },
     {
-      "id": 20,
+      "id": "20",
       "storeId": 3,
       "name": "Product 20",
       "price": 1150,
@@ -328,7 +372,7 @@
       "reviews": 19
     },
     {
-      "id": 21,
+      "id": "21",
       "storeId": 3,
       "name": "Product 21",
       "price": 1200,
@@ -344,7 +388,7 @@
       "discount": 18
     },
     {
-      "id": 22,
+      "id": "22",
       "storeId": 3,
       "name": "Product 22",
       "price": 1250,
@@ -359,7 +403,7 @@
       "reviews": 25
     },
     {
-      "id": 23,
+      "id": "23",
       "storeId": 3,
       "name": "Product 23",
       "price": 1300,
@@ -374,7 +418,7 @@
       "reviews": 28
     },
     {
-      "id": 24,
+      "id": "24",
       "storeId": 3,
       "name": "Product 24",
       "price": 1350,
@@ -385,11 +429,11 @@
         "L"
       ],
       "stock": 6,
-      "rating": 4.0,
+      "rating": 4,
       "reviews": 31
     },
     {
-      "id": 25,
+      "id": "25",
       "storeId": 4,
       "name": "Product 25",
       "price": 1000,
@@ -405,7 +449,7 @@
       "discount": 10
     },
     {
-      "id": 26,
+      "id": "26",
       "storeId": 4,
       "name": "Product 26",
       "price": 1050,
@@ -420,7 +464,7 @@
       "reviews": 13
     },
     {
-      "id": 27,
+      "id": "27",
       "storeId": 4,
       "name": "Product 27",
       "price": 1100,
@@ -431,11 +475,11 @@
         "L"
       ],
       "stock": 7,
-      "rating": 4.0,
+      "rating": 4,
       "reviews": 16
     },
     {
-      "id": 28,
+      "id": "28",
       "storeId": 4,
       "name": "Product 28",
       "price": 1150,
@@ -450,7 +494,7 @@
       "reviews": 19
     },
     {
-      "id": 29,
+      "id": "29",
       "storeId": 4,
       "name": "Product 29",
       "price": 1200,
@@ -466,7 +510,7 @@
       "discount": 18
     },
     {
-      "id": 30,
+      "id": "30",
       "storeId": 4,
       "name": "Product 30",
       "price": 1250,
@@ -481,7 +525,7 @@
       "reviews": 25
     },
     {
-      "id": 31,
+      "id": "31",
       "storeId": 4,
       "name": "Product 31",
       "price": 1300,
@@ -496,7 +540,7 @@
       "reviews": 28
     },
     {
-      "id": 32,
+      "id": "32",
       "storeId": 4,
       "name": "Product 32",
       "price": 1350,
@@ -507,11 +551,11 @@
         "L"
       ],
       "stock": 6,
-      "rating": 4.0,
+      "rating": 4,
       "reviews": 31
     },
     {
-      "id": 33,
+      "id": "33",
       "storeId": 5,
       "name": "Product 33",
       "price": 1000,
@@ -527,7 +571,7 @@
       "discount": 10
     },
     {
-      "id": 34,
+      "id": "34",
       "storeId": 5,
       "name": "Product 34",
       "price": 1050,
@@ -542,7 +586,7 @@
       "reviews": 13
     },
     {
-      "id": 35,
+      "id": "35",
       "storeId": 5,
       "name": "Product 35",
       "price": 1100,
@@ -553,11 +597,11 @@
         "L"
       ],
       "stock": 7,
-      "rating": 4.0,
+      "rating": 4,
       "reviews": 16
     },
     {
-      "id": 36,
+      "id": "36",
       "storeId": 5,
       "name": "Product 36",
       "price": 1150,
@@ -572,7 +616,7 @@
       "reviews": 19
     },
     {
-      "id": 37,
+      "id": "37",
       "storeId": 5,
       "name": "Product 37",
       "price": 1200,
@@ -588,7 +632,7 @@
       "discount": 18
     },
     {
-      "id": 38,
+      "id": "38",
       "storeId": 5,
       "name": "Product 38",
       "price": 1250,
@@ -603,7 +647,7 @@
       "reviews": 25
     },
     {
-      "id": 39,
+      "id": "39",
       "storeId": 5,
       "name": "Product 39",
       "price": 1300,
@@ -618,7 +662,7 @@
       "reviews": 28
     },
     {
-      "id": 40,
+      "id": "40",
       "storeId": 5,
       "name": "Product 40",
       "price": 1350,
@@ -629,7 +673,7 @@
         "L"
       ],
       "stock": 6,
-      "rating": 4.0,
+      "rating": 4,
       "reviews": 31
     }
   ]
