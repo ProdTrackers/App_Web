@@ -12,7 +12,7 @@
       "firstName": "María",
       "lastName": "López",
       "email": "maria.lopez@example.com",
-      "password": "qwerty"
+      "password": "ptoelqlolea"
     },
     {
       "id": "3",
@@ -36,7 +36,7 @@
       "password": "mypassword"
     },
     {
-      "id": 0,
+      "id": "0",
       "firstName": "Eduardo",
       "lastName": "Chero",
       "email": "eduardochero08@gmail.com",
