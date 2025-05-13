@@ -1,1 +1,69 @@
-<p>account works!</p>
+<div class="container my-4">
+  <h2>Account</h2>
+  <div class="row align-items-start mt-3">
+    <!-- Columna izquierda: avatar + file input -->
+    <div class="col-md-4 text-center border-end pe-4">
+      <img [src]="imageUrl"
+           class="img-fluid rounded mb-3"
+           style="max-width: 200px;"
+           alt="Avatar">
+      <div>
+        <input type="file"
+               accept="image/*"
+               (change)="onFileSelected($event)"
+               class="form-control form-control-sm">
+      </div>
+    </div>
+
+    <!-- Columna derecha: formulario -->
+    <div class="col-md-8 ps-4">
+      <form [formGroup]="accountForm" (ngSubmit)="onEdit()">
+
+  <!-- First Name -->
+  <div class="mb-3 form-floating">
+    <input formControlName="firstName"
+           type="text"
+           class="form-control"
+           id="firstName"
+           placeholder="First Name">
+    <label for="firstName">First Name</label>
+  </div>
+
+  <!-- Last Name -->
+  <div class="mb-3 form-floating">
+    <input formControlName="lastName"
+           type="text"
+           class="form-control"
+           id="lastName"
+           placeholder="Last Name">
+    <label for="lastName">Last Name</label>
+  </div>
+
+  <!-- Email -->
+  <div class="mb-3 form-floating">
+    <input formControlName="email"
+           type="email"
+           class="form-control"
+           id="email"
+           placeholder="Email Address">
+    <label for="email">Email Address</label>
+  </div>
+
+  <!-- Password -->
+  <div class="mb-3 form-floating">
+    <input formControlName="password"
+           type="password"
+           class="form-control"
+           id="password"
+           placeholder="Password">
+    <label for="password">Password</label>
+  </div>
+
+  <button type="submit" class="btn btn-dark w-100">
+    Edit
+  </button>
+</form>
+
+    </div>
+  </div>
+</div>
