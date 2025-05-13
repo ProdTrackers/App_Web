@@ -144,51 +144,6 @@
       "discount": 18
     },
     {
-      "id": "6",
-      "storeId": 1,
-      "name": "Product 6",
-      "price": 1250,
-      "image": "https://picsum.photos/id/1016/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 10,
-      "rating": 3.8,
-      "reviews": 25
-    },
-    {
-      "id": "7",
-      "storeId": 1,
-      "name": "Product 7",
-      "price": 1300,
-      "image": "https://picsum.photos/id/1017/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 5,
-      "rating": 3.9,
-      "reviews": 28
-    },
-    {
-      "id": "8",
-      "storeId": 1,
-      "name": "Product 8",
-      "price": 1350,
-      "image": "https://picsum.photos/id/1018/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 6,
-      "rating": 4,
-      "reviews": 31
-    },
-    {
       "id": "9",
       "storeId": 2,
       "name": "Product 9",
@@ -264,51 +219,6 @@
       "rating": 4.2,
       "reviews": 22,
       "discount": 18
-    },
-    {
-      "id": "14",
-      "storeId": 2,
-      "name": "Product 14",
-      "price": 1250,
-      "image": "https://picsum.photos/id/1024/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 10,
-      "rating": 3.8,
-      "reviews": 25
-    },
-    {
-      "id": "15",
-      "storeId": 2,
-      "name": "Product 15",
-      "price": 1300,
-      "image": "https://picsum.photos/id/1025/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 5,
-      "rating": 3.9,
-      "reviews": 28
-    },
-    {
-      "id": "16",
-      "storeId": 2,
-      "name": "Product 16",
-      "price": 1350,
-      "image": "https://picsum.photos/id/1026/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 6,
-      "rating": 4,
-      "reviews": 31
     },
     {
       "id": "17",
@@ -388,51 +298,6 @@
       "discount": 18
     },
     {
-      "id": "22",
-      "storeId": 3,
-      "name": "Product 22",
-      "price": 1250,
-      "image": "https://picsum.photos/id/1032/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 10,
-      "rating": 3.8,
-      "reviews": 25
-    },
-    {
-      "id": "23",
-      "storeId": 3,
-      "name": "Product 23",
-      "price": 1300,
-      "image": "https://picsum.photos/id/1033/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 5,
-      "rating": 3.9,
-      "reviews": 28
-    },
-    {
-      "id": "24",
-      "storeId": 3,
-      "name": "Product 24",
-      "price": 1350,
-      "image": "https://picsum.photos/id/1034/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 6,
-      "rating": 4,
-      "reviews": 31
-    },
-    {
       "id": "25",
       "storeId": 4,
       "name": "Product 25",
@@ -510,51 +375,6 @@
       "discount": 18
     },
     {
-      "id": "30",
-      "storeId": 4,
-      "name": "Product 30",
-      "price": 1250,
-      "image": "https://picsum.photos/id/1040/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 10,
-      "rating": 3.8,
-      "reviews": 25
-    },
-    {
-      "id": "31",
-      "storeId": 4,
-      "name": "Product 31",
-      "price": 1300,
-      "image": "https://picsum.photos/id/1041/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 5,
-      "rating": 3.9,
-      "reviews": 28
-    },
-    {
-      "id": "32",
-      "storeId": 4,
-      "name": "Product 32",
-      "price": 1350,
-      "image": "https://picsum.photos/id/1042/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 6,
-      "rating": 4,
-      "reviews": 31
-    },
-    {
       "id": "33",
       "storeId": 5,
       "name": "Product 33",
@@ -630,51 +450,6 @@
       "rating": 4.2,
       "reviews": 22,
       "discount": 18
-    },
-    {
-      "id": "38",
-      "storeId": 5,
-      "name": "Product 38",
-      "price": 1250,
-      "image": "https://picsum.photos/id/1048/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 10,
-      "rating": 3.8,
-      "reviews": 25
-    },
-    {
-      "id": "39",
-      "storeId": 5,
-      "name": "Product 39",
-      "price": 1300,
-      "image": "https://picsum.photos/id/1049/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 5,
-      "rating": 3.9,
-      "reviews": 28
-    },
-    {
-      "id": "40",
-      "storeId": 5,
-      "name": "Product 40",
-      "price": 1350,
-      "image": "https://picsum.photos/id/1050/300/300",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "stock": 6,
-      "rating": 4,
-      "reviews": 31
     }
   ]
 }
