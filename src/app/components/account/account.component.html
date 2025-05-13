@@ -1,1 +1,76 @@
-<p>account works!</p>
+<div class="container my-4">
+  <h2>Account</h2>
+  <div class="row align-items-start mt-3">
+    <!-- Columna izquierda: avatar + file input -->
+    <div class="col-md-4 text-center border-end pe-4">
+      <img [src]="imageUrl"
+           class="img-fluid rounded mb-3"
+           style="max-width: 200px;"
+           alt="Avatar">
+      <div>
+        <input type="file"
+               accept="image/*"
+               (change)="onFileSelected($event)"
+               class="form-control form-control-sm">
+      </div>
+    </div>
+
+    <!-- Columna derecha: formulario -->
+    <div class="col-md-8 ps-4">
+      <form [formGroup]="accountForm" (ngSubmit)="onEdit()">
+        <div class="mb-3 form-floating">
+          <input formControlName="fullName"
+                 type="text"
+                 class="form-control"
+                 id="fullName"
+                 placeholder="Full Name">
+          <label for="fullName">Full Name</label>
+        </div>
+
+        <div class="mb-3 form-floating">
+          <input formControlName="email"
+                 type="email"
+                 class="form-control"
+                 id="email"
+                 placeholder="Email Address">
+          <label for="email">Email Address</label>
+        </div>
+
+        <div class="mb-3 form-floating">
+          <input formControlName="dob"
+                 type="date"
+                 class="form-control"
+                 id="dob"
+                 placeholder="Date of Birth">
+          <label for="dob">Date of Birth</label>
+        </div>
+
+        <div class="mb-3 form-floating">
+          <select formControlName="gender"
+                  class="form-select"
+                  id="gender"
+                  placeholder="Gender">
+            <option value="" disabled selected></option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <label for="gender">Gender</label>
+        </div>
+
+        <div class="mb-3 form-floating">
+          <input formControlName="phone"
+                 type="tel"
+                 class="form-control"
+                 id="phone"
+                 placeholder="Phone Number">
+          <label for="phone">Phone Number</label>
+        </div>
+
+        <button type="submit" class="btn btn-dark w-100">
+          Edit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

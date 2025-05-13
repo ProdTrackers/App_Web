@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
 
 export class UserService {
 
-  private apiUrl = "http://localhost:3000/users";
+  private apiUrl = "https://my-json-server.typicode.com/EChero11/dbjson_iot/users";
 
   constructor(private http: HttpClient){ }
 
