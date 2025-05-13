@@ -1,0 +1,29 @@
+.container {
+  padding: 20px;
+}
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 20px;
+}
+input, select {
+  padding: 8px;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+.product-card {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+.discount {
+  color: red;
+  font-weight: bold;
+}
