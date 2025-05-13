@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {MatToolbar} from "@angular/material/toolbar";
-import {RouterLink} from "@angular/router";
+import {RouterLink, RouterOutlet} from "@angular/router";
 import {MatButtonModule} from "@angular/material/button";
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,7 @@ import {MatButtonModule} from "@angular/material/button";
     MatToolbar,
     RouterLink,
     MatButtonModule,
+    RouterOutlet
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
