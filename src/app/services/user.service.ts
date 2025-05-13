@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {LoginUser, User} from '../models/user';
+import {User} from '../models/user';
 import {Observable} from 'rxjs';
 
 
@@ -23,4 +23,13 @@ export class UserService {
       `${this.apiUrl}?email=${email}&password=${password}`
     );
   }
+
+  getUserByEmail(email: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}?email=${email}`);
+  }
+
+  updatePassword(id: number, newPassword: string): Observable<User> {
+    return this.http.patch<User>(`${this.apiUrl}/${id}`, { password: newPassword });
+  }
+
 }
