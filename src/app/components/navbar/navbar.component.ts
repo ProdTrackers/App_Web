@@ -9,7 +9,7 @@ import {MatButtonModule} from "@angular/material/button";
     MatToolbar,
     RouterLink,
     MatButtonModule,
-    RouterOutlet,
+    RouterOutlet
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
