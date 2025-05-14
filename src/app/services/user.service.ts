@@ -10,6 +10,7 @@ import {Observable, tap} from 'rxjs';
 })
 
 export class UserService {
+
  private apiUrl = "https://my-json-server.typicode.com/EChero11/dbjson_iot/users";
   private STORAGE_KEY = 'logData';
 

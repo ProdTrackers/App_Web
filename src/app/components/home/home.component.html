@@ -1,1 +1,36 @@
-<p>home works!</p>
+<div class="tabs">
+  <button
+    (click)="resetStoreFilter()"
+    [class.active]="selectedStoreId() === null">
+    Todos
+  </button>
+  <button *ngFor="let store of stores()"
+          (click)="selectStore(store.id)"
+          [class.active]="store.id === selectedStoreId()">
+    {{ store.name }}
+  </button>
+</div>
+
+<div class="grid">
+  <div class="inventory">
+    <div class="card" *ngFor="let product of products()" (click)="selectProduct(product)">
+      <img [src]="product.image" alt="">
+      <h3>{{ product.name }}</h3>
+      <p *ngIf="product.discount">
+        <span class="old-price">${{ product.price + (product.price * discount(product) / 100) }}</span>
+        <span class="discount">-{{ discount(product) }}%</span>
+      </p>
+      <p class="price">${{ product.price }}</p>
+    </div>
+  </div>
+
+  <div class="detail" *ngIf="selectedProduct() as product">
+    <img [src]="product.image" alt="">
+    <h2>{{ product.name }}</h2>
+    <p>⭐ {{ product.rating }} / 5 ({{ product.reviews }} reviews)</p>
+    <p><strong>Stock:</strong> {{ product.stock }}</p>
+    <p><strong>Sizes:</strong> {{ product.sizes.join(', ') }}</p>
+    <p class="price-detail">${{ product.price }}</p>
+    <button class="locate">Locate</button>
+  </div>
+</div>

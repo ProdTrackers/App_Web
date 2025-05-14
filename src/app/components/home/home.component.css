@@ -1,0 +1,63 @@
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.tabs button {
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+.tabs .active {
+  background: black;
+  color: white;
+}
+
+.grid {
+  display: flex;
+  gap: 2rem;
+}
+
+.inventory {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  flex: 1;
+}
+.card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+}
+.discount {
+  color: red;
+  margin-left: 0.5rem;
+}
+.price {
+  font-weight: bold;
+}
+
+.detail {
+  flex: 0 0 350px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 12px;
+}
+.detail img {
+  width: 100%;
+}
+.price-detail {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
