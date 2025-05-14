@@ -55,6 +55,14 @@ onEdit() {
     password:  password!
   };
 
-  this.userSvc.updateUser(updated).subscribe(/* ... */);
+  this.userSvc.updateUser(updated).subscribe({
+    next: () => {
+      alert("Usuario actualizado exitosamente.");
+    },
+    error: (err) => {
+      alert("Ocurrió un error al actualizar el usuario: " + err.message);
+    }
+  });
+
 }
 }

@@ -7,7 +7,10 @@
     <a mat-button routerLink="/home">Home</a>
     <a mat-button routerLink="/search">Search</a>
     <a mat-button routerLink="/account">Account</a>
+    <a mat-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </a>
   </nav>
 </mat-toolbar>
 
-<router-outlet/>
+<router-outlet />
