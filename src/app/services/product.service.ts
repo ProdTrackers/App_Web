@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  
+
   //private readonly baseUrl = 'http://localhost:3000';
   private readonly baseUrl = 'https://my-json-server.typicode.com/EChero11/dbjson_iot';
 
@@ -22,5 +22,9 @@ export class ProductService {
 
   getProductsByStore(storeId: number): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseUrl}/products?storeId=${storeId}`);
+  }
+
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.baseUrl}/products/${id}`);
   }
 }
