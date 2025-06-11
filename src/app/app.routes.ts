@@ -34,11 +34,11 @@ export const routes: Routes = [
       {
         path: 'account',
         component: AccountComponent
+      },
+      {
+        path: 'location/:id',
+        component: LocationComponent
       }
     ]
-  },
-  {
-    path: 'location/:id',
-    component: LocationComponent
   }
 ];
