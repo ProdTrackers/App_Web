@@ -10,12 +10,11 @@ import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 // 2) Parchea los iconos por defecto para producción
-delete (L.Icon.Default.prototype as any)._getIconUrl;
-(L.Icon.Default as any).mergeOptions({
-  iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
-  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png'
-});
+if (L.Icon?.Default) {
+  (L.Icon.Default as any).prototype.options.iconRetinaUrl = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png';
+  (L.Icon.Default as any).prototype.options.iconUrl = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png';
+  (L.Icon.Default as any).prototype.options.shadowUrl = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png';
+}
 
 @Component({
   selector: 'app-location',
