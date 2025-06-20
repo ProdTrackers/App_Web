@@ -52,31 +52,26 @@ export class LocationComponent implements OnInit, AfterViewInit {
     import('leaflet').then(L => {
       const { latitude, longitude } = this.product!.iotDevice;
 
-      // 1) DEFINES AQUÍ tu icono personalizado
-      const myIcon = L.icon({
-        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-        iconSize:     [25, 41],
-        iconAnchor:   [12, 41],
-        popupAnchor:  [0, -41]
-      });
-
-      // 2) INICIALIZAS EL MAPA
-      this.map = L.map('map').setView([latitude, longitude], 13);
+      const map = L.map('map').setView([latitude, longitude], 13);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(this.map);
+      }).addTo(map);
 
-      // 3) AÑADES EL MARCADOR usando tu icono
-      L.marker([latitude, longitude], { icon: myIcon })
-        .addTo(this.map)
+      const markerIcon = L.icon({
+        iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41]
+      });
+
+      L.marker([latitude, longitude], { icon: markerIcon })
+        .addTo(map)
         .bindPopup(this.product!.name)
         .openPopup();
 
-      // 4) FORZAS el redimensionado si hiciera falta
-      this.map.whenReady(() => {
-        setTimeout(() => this.map.invalidateSize(), 200);
+      map.whenReady(() => {
+        setTimeout(() => map.invalidateSize(), 200);
       });
     });
   }
