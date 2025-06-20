@@ -52,30 +52,25 @@ export class LocationComponent implements OnInit, AfterViewInit {
     });
   }
 
-  initMap(): void {
-    if (!this.product?.iotDevice || this.map) return;  // ya inicializado
+ initMap(): void {
+  if (!this.product?.iotDevice || this.map) return;
 
-    const { latitude, longitude } = this.product.iotDevice;
+  const { latitude, longitude } = this.product.iotDevice;
 
-    // 3) Inicializa el mapa
-    this.map = L.map('map').setView([latitude, longitude], 13);
+  this.map = L.map('map').setView([latitude, longitude], 13);
 
-    // 4) Capa de tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(this.map);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(this.map);
 
-    // 5) Marcador (usa el icono por defecto parcheado)
-    L.marker([latitude, longitude])
-      .addTo(this.map)
-      .bindPopup(this.product.name)
-      .openPopup();
+  L.marker([latitude, longitude]).addTo(this.map)
+    .bindPopup(this.product.name)
+    .openPopup();
 
-    // 6) Forzar recalculo de tamaño si fuera necesario
-    this.map.whenReady(() => {
-      setTimeout(() => this.map!.invalidateSize(), 200);
-    });
-  }
+  this.map.whenReady(() => {
+    setTimeout(() => this.map!.invalidateSize(), 200);
+  });
+}
 
   ngAfterViewInit(): void {
     // En caso de que `product` ya estuviera cargado antes del render
