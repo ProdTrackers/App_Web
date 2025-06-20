@@ -53,26 +53,36 @@ export class LocationComponent implements OnInit, AfterViewInit {
   }
 
  initMap(): void {
-  if (!this.product?.iotDevice || this.map) return;
+    if (!this.product?.iotDevice || this.map) return;
 
-  const { latitude, longitude } = this.product.iotDevice;
+    const { latitude, longitude } = this.product.iotDevice;
 
-  this.map = L.map('map').setView([latitude, longitude], 13);
+    this.map = L.map('map').setView([latitude, longitude], 13);
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(this.map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(this.map);
 
-  L.marker([latitude, longitude])
-    .addTo(this.map)
-    .bindPopup(this.product.name)
-    .openPopup();
+    // Aquí creas el icono
+    const markerIcon = L.icon({
+      iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+      iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+      shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41]
+    });
 
-  this.map.whenReady(() => {
-    setTimeout(() => this.map!.invalidateSize(), 200);
-  });
-}
+    // Y aquí lo usas
+    L.marker([latitude, longitude], { icon: markerIcon })
+      .addTo(this.map)
+      .bindPopup(this.product.name)
+      .openPopup();
 
+    this.map.whenReady(() => {
+      setTimeout(() => this.map.invalidateSize(), 200);
+    });
+  }
+  
   ngAfterViewInit(): void {
     // En caso de que `product` ya estuviera cargado antes del render
     if (this.isBrowser && this.product?.iotDevice) {
