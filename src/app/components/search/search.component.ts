@@ -1,13 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {Product} from '../../models/product';
-import {Store} from '../../models/store';
-import {ProductService} from '../../services/product.service';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Product } from '../../models/product';
+import { Store } from '../../models/store';
+import { ProductService } from '../../services/product.service';
+import { RouterModule } from '@angular/router';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-search',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './search.component.html',
   standalone: true,
   styleUrl: './search.component.css'
@@ -39,6 +41,4 @@ export class SearchComponent implements OnInit{
       p.name.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
-
-
 }

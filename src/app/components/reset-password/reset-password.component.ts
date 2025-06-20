@@ -23,11 +23,12 @@ export class ResetPasswordComponent {
   constructor(private userService: UserService) {}
 
   sendCode() {
-    this.userService.getUserByEmail(this.email).subscribe(users => {
-      if (users.length > 0) {
-        this.userId = users[0].id;
+    this.userService.getAllUsers().subscribe(users => {
+      const user = users.find(u => u.email === this.email);
+      if (user) {
+        this.userId = user.id;
         this.verificationCode = Math.floor(100000 + Math.random() * 900000).toString(); // código fake
-        alert(`Tu código de verificación es: ${this.verificationCode}`); // Simula envío
+        alert(`Tu código de verificación es: ${this.verificationCode}`);
         this.step = 2;
       } else {
         alert('Correo no encontrado');

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="map-container">
+    <div *ngIf="isBrowser">
+      <div id="map" style="height:500px; width:1000px;"></div>
+    </div>
+  </div>
+
+  <div class="product-info">
+    <div class="product-details" *ngIf="product">
+      <div class="product-image">
+        <img [src]="product.imageUrl" alt="{{ product.name }}" />
+      </div>
+
+      <div class ="product-description">
+        <h3>{{ product.name }}</h3>
+
+        <div class="product-stock">
+          <h4>Stock:</h4>
+          <h4>Available</h4>
+        </div>
+
+        <div class="product-bottom-content">
+          <div class="product-size">
+            <h5>Size:</h5>
+            <h2>{{ product.size }}</h2>
+          </div>
+
+          <div class="product-price">
+            <p>Price</p>
+            <h2>S/ {{ product.price }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

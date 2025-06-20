@@ -14,7 +14,7 @@
 <div class="grid">
   <div class="inventory">
     <div class="card" *ngFor="let product of products()" (click)="selectProduct(product)">
-      <img [src]="product.image" alt="">
+      <img [src]="product.imageUrl" alt="">
       <h3>{{ product.name }}</h3>
       <p *ngIf="product.discount">
         <span class="old-price">${{ product.price + (product.price * discount(product) / 100) }}</span>
@@ -25,12 +25,11 @@
   </div>
 
   <div class="detail" *ngIf="selectedProduct() as product">
-    <img [src]="product.image" alt="">
+    <img [src]="product.imageUrl" alt="">
     <h2>{{ product.name }}</h2>
-    <p>⭐ {{ product.rating }} / 5 ({{ product.reviews }} reviews)</p>
-    <p><strong>Stock:</strong> {{ product.stock }}</p>
-    <p><strong>Sizes:</strong> {{ product.sizes.join(', ') }}</p>
-    <p class="price-detail">${{ product.price }}</p>
-    <button class="locate">Locate</button>
+    <p><strong>Color:</strong> {{ product.color }}</p>
+    <p><strong>Size:</strong> {{ product.size}}</p>
+    <p class="price-detail"><strong>Price:</strong> ${{ product.price }}</p>
+    <button class="locate" (click)="goToLocation(product.id)">Locate</button>
   </div>
 </div>

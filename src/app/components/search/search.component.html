@@ -11,8 +11,8 @@
   </div>
 
   <div class="product-grid">
-    <div class="product-card" *ngFor="let product of filteredProducts">
-      <img [src]="product.image" alt="{{ product.name }}" />
+    <div class="product-card" *ngFor="let product of filteredProducts" [routerLink]="['/location', product.id]">
+      <img [src]="product.imageUrl" alt="{{ product.name }}" />
       <h3>{{ product.name }}</h3>
       <p>S/ {{ product.price }}</p>
       <span *ngIf="product.discount" class="discount">-{{ product.discount }}%</span>

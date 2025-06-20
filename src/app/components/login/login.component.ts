@@ -18,19 +18,22 @@ export class LoginComponent {
   userService = inject(UserService);
   router = inject(Router);
 
-onLogin() {
-  this.userService.onLogin(this.loginObj.email, this.loginObj.password)
-    .subscribe((res: User[]) => {
-      if (res.length > 0) {
-        const user = res[0];              // JSON-Server devuelve un array
-        localStorage.setItem('logData', JSON.stringify(user));
-        alert("User found successfully, navigating inside.");
-        this.router.navigateByUrl('/home');
-      } else {
-        alert("Wrong username or password");
-      }
-    }, () => {
-      alert("Wrong username or password");
-    });
-}
+  onLogin() {
+    if (!this.loginObj.email || !this.loginObj.password) {
+      alert('Please enter both email and password.');
+      return;
+    }
+
+    this.userService.onLogin(this.loginObj.email, this.loginObj.password)
+      .subscribe({
+        next: (user) => {
+          alert('Login successful');
+          this.router.navigateByUrl('/home');
+        },
+        error: (err) => {
+          console.error(err);
+          alert('Incorrect email or password.');
+        }
+      });
+    }
 }

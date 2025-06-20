@@ -6,11 +6,12 @@ import {LoginComponent} from './components/login/login.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {RegisterComponent} from './components/register/register.component';
 import {ResetPasswordComponent} from './components/reset-password/reset-password.component';
+import {LocationComponent} from './components/location/location.component';
 
 export const routes: Routes = [
   {
     path: '', redirectTo: 'login', pathMatch: 'full',
-  } ,
+  },
   {
     path: 'login', component: LoginComponent
   },
@@ -28,11 +29,15 @@ export const routes: Routes = [
       },
       {
         path: 'search',
-        component: SearchComponent
+        component: SearchComponent,
       },
       {
         path: 'account',
         component: AccountComponent
+      },
+      {
+        path: 'location/:id',
+        component: LocationComponent
       }
     ]
   }
