@@ -7,13 +7,14 @@ import { FormsModule } from '@angular/forms';
 
 // 1) Import estático de Leaflet
 import * as L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 // 2) Parchea los iconos por defecto para producción
 delete (L.Icon.Default.prototype as any)._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'assets/leaflet/images/marker-icon-2x.png',
-  iconUrl:       'assets/leaflet/images/marker-icon.png',
-  shadowUrl:     'assets/leaflet/images/marker-shadow.png'
+(L.Icon.Default as any).mergeOptions({
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png'
 });
 
 @Component({
@@ -63,7 +64,8 @@ export class LocationComponent implements OnInit, AfterViewInit {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(this.map);
 
-  L.marker([latitude, longitude]).addTo(this.map)
+  L.marker([latitude, longitude])
+    .addTo(this.map)
     .bindPopup(this.product.name)
     .openPopup();
 
