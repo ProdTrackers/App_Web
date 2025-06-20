@@ -5,22 +5,30 @@ import { ProductService } from '../../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+// 1) Import estático de Leaflet
+import * as L from 'leaflet';
+
+// 2) Parchea los iconos por defecto para producción
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'assets/leaflet/images/marker-icon-2x.png',
+  iconUrl:       'assets/leaflet/images/marker-icon.png',
+  shadowUrl:     'assets/leaflet/images/marker-shadow.png'
+});
+
 @Component({
   selector: 'app-location',
   imports: [CommonModule, FormsModule],
   templateUrl: './location.component.html',
   styleUrl: './location.component.css'
 })
-
 export class LocationComponent implements OnInit, AfterViewInit {
-
   product: Product | null = null;
-  selectedSize: string | null = null;
   isBrowser: boolean;
-  private map: any | null = null;
+  private map: L.Map | null = null;
 
   constructor(
-    private ProductService: ProductService,
+    private productService: ProductService,
     private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
@@ -32,53 +40,46 @@ export class LocationComponent implements OnInit, AfterViewInit {
     if (!idParam) return;
 
     const id = Number(idParam);
-
-    this.ProductService.getProductById(id)
-      .subscribe({
-        next: prod => {
-          this.product = prod;
-
-          if (isPlatformBrowser(this.platformId)) {
-            setTimeout(() => this.initMap(), 100);
-          }
-        },
-        error: err => console.error('Error fetching product:', err)
-      });
+    this.productService.getProductById(id).subscribe({
+      next: prod => {
+        this.product = prod;
+        if (this.isBrowser) {
+          // asegúrate de que el div #map ya esté en el DOM
+          setTimeout(() => this.initMap(), 100);
+        }
+      },
+      error: err => console.error('Error fetching product:', err)
+    });
   }
 
   initMap(): void {
-    if (!this.product?.iotDevice || this.map) return; // ya inicializado
+    if (!this.product?.iotDevice || this.map) return;  // ya inicializado
 
-    import('leaflet').then(L => {
-      const { latitude, longitude } = this.product!.iotDevice;
+    const { latitude, longitude } = this.product.iotDevice;
 
-      const map = L.map('map').setView([latitude, longitude], 13);
+    // 3) Inicializa el mapa
+    this.map = L.map('map').setView([latitude, longitude], 13);
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
+    // 4) Capa de tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(this.map);
 
-      const markerIcon = L.icon({
-        iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-        shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41]
-      });
+    // 5) Marcador (usa el icono por defecto parcheado)
+    L.marker([latitude, longitude])
+      .addTo(this.map)
+      .bindPopup(this.product.name)
+      .openPopup();
 
-      L.marker([latitude, longitude], { icon: markerIcon })
-        .addTo(map)
-        .bindPopup(this.product!.name)
-        .openPopup();
-
-      map.whenReady(() => {
-        setTimeout(() => map.invalidateSize(), 200);
-      });
+    // 6) Forzar recalculo de tamaño si fuera necesario
+    this.map.whenReady(() => {
+      setTimeout(() => this.map!.invalidateSize(), 200);
     });
   }
 
   ngAfterViewInit(): void {
-    // Si el producto ya está cargado cuando se termina de renderizar
-    if (this.product?.iotDevice) {
+    // En caso de que `product` ya estuviera cargado antes del render
+    if (this.isBrowser && this.product?.iotDevice) {
       this.initMap();
     }
   }
