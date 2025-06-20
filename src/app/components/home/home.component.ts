@@ -3,6 +3,7 @@ import { ProductService} from '../../services/product.service';
 import { Product} from '../../models/product';
 import { Store } from '../../models/store';
 import {CommonModule} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,8 @@ import {CommonModule} from '@angular/common';
 })
 export class HomeComponent implements OnInit {
   private productService = inject(ProductService);
+
+  constructor(private router: Router) {}
 
   stores = signal<Store[]>([]);
   allProducts = signal<Product[]>([]);
@@ -57,5 +60,9 @@ export class HomeComponent implements OnInit {
 
   discount(p: Product): number {
     return p.discount ?? 0;
+  }
+
+  goToLocation(id: number) {
+    this.router.navigate(['/location', id]);
   }
 }

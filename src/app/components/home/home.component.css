@@ -61,3 +61,56 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+.tabs {
+    padding:  10px 30px;
+}
+
+.grid {
+    padding: 0px 30px 30px 30px;
+}
+
+.inventory {
+    grid-template-columns: repeat(5, 1fr) !important;
+}
+
+.card img {
+    max-width: 300px;
+    max-height: 350px;
+    min-height: 350px;
+    object-fit: cover;
+}
+
+.card {
+    max-height: fit-content;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+.detail h2 {
+    margin-top: 20px;
+}
+
+.detail p:nth-child(3) {
+    margin: 0 !important;
+}
+
+button.locate {
+    border: solid 1px blacl;
+    border-radius: 20px;
+    width: 125px;
+    margin-top: 10px;
+    color: white;
+    background-color: black;
+}
+
+.card h3{
+    margin-top: 20px;
+}
+
+p.price {
+  font-size: 30px;
+  margin: 0;
+}

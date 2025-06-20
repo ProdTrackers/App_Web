@@ -27,3 +27,25 @@ img {
   color: red;
   font-weight: bold;
 }
+
+.product-card {
+    border-radius: 10px
+}
+
+.product-card img {
+    max-height: 250px;
+    min-height: 250px;
+    object-fit: cover;
+}
+
+h3 {
+    font-weight: 300;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+p {
+    text-align: end;
+    font-size: 20px;
+    font-weight: 700;
+}

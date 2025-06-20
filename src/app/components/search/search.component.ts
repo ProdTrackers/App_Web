@@ -5,6 +5,7 @@ import { Product } from '../../models/product';
 import { Store } from '../../models/store';
 import { ProductService } from '../../services/product.service';
 import { RouterModule } from '@angular/router';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-search',
@@ -40,6 +41,4 @@ export class SearchComponent implements OnInit{
       p.name.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
-
-
 }

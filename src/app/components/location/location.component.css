@@ -97,3 +97,13 @@ iframe {
 .product-price p {
     margin: 0;
 }
+
+.product-stock {
+    margin-top: 20px;
+}
+
+.product-size {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

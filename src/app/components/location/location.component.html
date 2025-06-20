@@ -1,48 +1,28 @@
 <div class="container">
   <div class="map-container">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6179.3146!2d-77.0428!3d-12.0464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c80f7f6dcd2f%3A0x96697b9669caddbb!2sLima%2C%20Per%C3%BA!5e0!3m2!1ses!2spe!4v1678901234567"
-      width="100%"
-      height="300"
-      style="border:0"
-      allowfullscreen=""
-      loading="lazy"
-    ></iframe>
+    <div *ngIf="isBrowser">
+      <div id="map" style="height:500px; width:1000px;"></div>
+    </div>
   </div>
 
   <div class="product-info">
     <div class="product-details" *ngIf="product">
       <div class="product-image">
-        <img [src]="product.image" alt="{{ product.name }}" />
+        <img [src]="product.imageUrl" alt="{{ product.name }}" />
       </div>
 
       <div class ="product-description">
         <h3>{{ product.name }}</h3>
 
-        <div class="product-rating">
-          <span style="color: gold; font-size: 2rem;">&#9733;</span>
-          <p>{{ product.rating }}/5</p>
-          <p>({{ product.reviews }} reviews)</p>
-        </div>
-
         <div class="product-stock">
           <h4>Stock:</h4>
-          <h4>Available ({{ product.stock }} in stock)</h4>
+          <h4>Available</h4>
         </div>
 
         <div class="product-bottom-content">
           <div class="product-size">
-            <h5>Choose size</h5>
-            <div class="sizes">
-              <span
-                *ngFor="let size of product.sizes"
-                class="size"
-                [ngClass]="{ 'selected': selectedSize === size }"
-                (click)="selectedSize = size"
-              >
-                {{ size }}
-              </span>
-            </div>
+            <h5>Size:</h5>
+            <h2>{{ product.size }}</h2>
           </div>
 
           <div class="product-price">

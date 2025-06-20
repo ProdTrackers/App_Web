@@ -11,7 +11,7 @@ import {LocationComponent} from './components/location/location.component';
 export const routes: Routes = [
   {
     path: '', redirectTo: 'login', pathMatch: 'full',
-  } ,
+  },
   {
     path: 'login', component: LoginComponent
   },
