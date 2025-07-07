@@ -7,16 +7,15 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-location',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './location.component.html',
   styleUrl: './location.component.css'
 })
-
 export class LocationComponent implements OnInit, AfterViewInit {
 
   product: Product | null = null;
   selectedSize: string | null = null;
-  isBrowser: boolean;
   private map: any | null = null;
 
   constructor(
@@ -24,7 +23,6 @@ export class LocationComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
   ngOnInit(): void {
@@ -37,26 +35,36 @@ export class LocationComponent implements OnInit, AfterViewInit {
       .subscribe({
         next: prod => {
           this.product = prod;
-
-          if (isPlatformBrowser(this.platformId)) {
-            setTimeout(() => this.initMap(), 100);
-          }
         },
         error: err => console.error('Error fetching product:', err)
       });
   }
 
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId) && this.product?.iotDevice && !this.map) {
+      this.initMap();
+    }
+  }
+
   initMap(): void {
-    if (!this.product?.iotDevice || this.map) return; // ya inicializado
+    if (!this.product?.iotDevice || this.map) {
+      return;
+    }
 
     import('leaflet').then(L => {
       const { latitude, longitude } = this.product!.iotDevice;
 
-      const map = L.map('map').setView([latitude, longitude], 13);
+      const mapElement = document.getElementById('map');
+      if (!mapElement) {
+        console.error('Map element with ID "map" not found in the DOM.');
+        return;
+      }
+
+      this.map = L.map(mapElement).setView([latitude, longitude], 13);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
+      }).addTo(this.map);
 
       const markerIcon = L.icon({
         iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -66,20 +74,15 @@ export class LocationComponent implements OnInit, AfterViewInit {
       });
 
       L.marker([latitude, longitude], { icon: markerIcon })
-        .addTo(map)
+        .addTo(this.map)
         .bindPopup(this.product!.name)
         .openPopup();
 
-      map.whenReady(() => {
-        setTimeout(() => map.invalidateSize(), 200);
+      this.map.whenReady(() => {
+        setTimeout(() => this.map.invalidateSize(), 0);
       });
+    }).catch(err => {
+      console.error('Error loading Leaflet:', err);
     });
-  }
-
-  ngAfterViewInit(): void {
-    // Si el producto ya está cargado cuando se termina de renderizar
-    if (this.product?.iotDevice) {
-      this.initMap();
-    }
   }
 }
